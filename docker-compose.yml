@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  postgres:
+    container_name: postgres-notification
+    image: postgres:16
+    ports:
+      - "5024:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: new_employee_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  backend:
+    container_name: Backend-notification
+    build: ./Backend
+    ports:
+      - "3056:3056"
+    depends_on:
+      - postgres
+    environment:
+      PG_USER: postgres
+      PG_PASSWORD: admin123
+      PG_DATABASE: new_employee_db
+      PG_HOST: postgres
+      PG_PORT: 5432
+      PORT: 3056
+
+  frontend:
+    container_name: Frontend-notification
+    build: ./Frontend
+    ports:
+      - "8077:80"
+    depends_on:
+      - backend
+
+  hr_page:
+    container_name: HR_page-notification
+    build: ./Hr_page
+    ports:
+      - "8078:80"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
+
