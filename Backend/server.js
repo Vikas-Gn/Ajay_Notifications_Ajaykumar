@@ -46,7 +46,7 @@ const corsOptions = {
     origin: [
         'http://127.0.0.1:5503',
         'http://localhost:5503',
-        'http://3.88.203.125:3601',
+        'http://65.2.149.3:3056',
         'http://65.2.149.3:8078', // HR Notification Portal
         'http://65.2.149.3:8077', // Employee Notification Portal
         'http://localhost:7102',
