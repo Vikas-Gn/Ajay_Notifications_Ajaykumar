@@ -162,7 +162,7 @@ async function startServer() {
         client.release();
         await createTables();
         app.listen(port, host, () => {
-            console.log(`Server running on http://${host}:${port} (accessible at http://44.223.23.145:${port})`);
+            console.log(`Server running on http://${host}:${port} (accessible at http://13.233.184.30:${port})`);
         });
     } catch (error) {
         console.error('Error starting server:', error.message, error.stack);
