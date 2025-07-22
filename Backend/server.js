@@ -46,9 +46,9 @@ const corsOptions = {
     origin: [
         'http://127.0.0.1:5503',
         'http://localhost:5503',
-        'http://52.66.214.0:3056',
-        'http://52.66.214.0:8078', // HR Notification Portal
-        'http://52.66.214.0:8077', // Employee Notification Portal
+        'http://3.109.47.88:3056',
+        'http://3.109.47.88:8078', // HR Notification Portal
+        'http://3.109.47.88:8077', // Employee Notification Portal
         'http://localhost:8077',
         'http://localhost:8078',
     ],
@@ -162,7 +162,7 @@ async function startServer() {
         client.release();
         await createTables();
         app.listen(port, host, () => {
-            console.log(`Server running on http://${host}:${port} (accessible at http://52.66.214.0:${port})`);
+            console.log(`Server running on http://${host}:${port} (accessible at http://3.109.47.88:${port})`);
         });
     } catch (error) {
         console.error('Error starting server:', error.message, error.stack);
